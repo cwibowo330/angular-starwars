@@ -7,9 +7,6 @@ export class StarWarsService {
     { name: 'Luke SkyWalker', side: '' },
     { name: 'Yoda', side: '' },
     { name: 'Darth Vader', side: '' },
-    { name: 'Chewbacca', side: '' },
-    { name: 'Darth Maul', side: '' },
-    { name: 'Emperor Palpatine', side: '' },
     { name: 'r2d2', side: '' }
   ];
 
@@ -35,5 +32,17 @@ export class StarWarsService {
     });
     this.characters[pos].side = charInfo.side;
     this.logService.writeLog('Changed side of: ' +  charInfo.name + ' New Side: ' + charInfo.side);
+  }
+
+  addCharacter(name, side) {
+    const pos = this.characters.findIndex((char) => {
+      return char.name === name;
+    });
+    // returns -1 if character exists
+    if (pos !== -1) {
+
+    }
+    const newChar = {name: name, side: side};
+    this.characters.push(newChar);
   }
 }
